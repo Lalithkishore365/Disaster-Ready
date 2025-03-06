@@ -1,0 +1,142 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* White background */
+    color: #1c1c1c; /* Dark text for contrast */
+}
+  
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Navbar Styling */
+/* Navbar Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #333; /* Navbar color */
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Logo on the left */
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+}
+
+header .logo span {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff; /* White text */
+}
+
+/* Move navigation to the right */
+header nav {
+    margin-left: auto; /* Push nav to the right */
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 15px; /* Uniform spacing */
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #c3d136; /* Highlight effect */
+}
+
+.alert-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px; /* Space between nav and alert button */
+}
+
+
+/* Main Content Styling */
+main {
+    margin-top: 80px; /* Space for fixed navbar */
+    padding: 20px;
+}
+
+main h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #c3d136; /* Greenish-yellow for emphasis */
+    margin-bottom: 30px;
+}
+
+/* Disaster Grid */
+.disaster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Disaster Items */
+.disaster-item {
+    position: relative;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.disaster-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.disaster-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Improved Disaster Name Visibility */
+.disaster-item p {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 80%;
+    text-align: center;
+}

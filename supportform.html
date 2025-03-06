@@ -4,26 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emergency Form</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">
-        <img src="logo-placeholder.png" alt="DisasterReady Logo">
-        <span>DISASTERREADY</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#">Info Hub</a></li>
-          <li><a href="#">Support form</a></li>
-          <li><a href="#">Volunteer/Donate</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="alert-button">🔔</button>
-    </header>
+  <header>
+    <div class="logo">
+      <img src="DISASTERREADY.jpg" alt="DisasterReady Logo">
+      <span>DISASTERREADY</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="#">Info Hub</a></li>
+        <li><a href="#">Volunteer/Donate</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="alert-button">🔔</button>
+  </header>
 
+  <div class="container">
     <main>
       <h1>Fill this form to get immediate support</h1>
 
@@ -34,19 +34,19 @@
           </div>
           <div class="fields">
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Enter your name">
+            <input type="text" id="name" placeholder="Enter your name" required>
 
             <label for="phone">Phone number</label>
-            <input type="text" id="phone" placeholder="Enter your phone number">
+            <input type="text" id="phone" placeholder="Enter your phone number" required>
 
             <label for="disaster">Disaster faced</label>
-            <input type="text" id="disaster" placeholder="Describe the disaster">
+            <input type="text" id="disaster" placeholder="Describe the disaster" required>
 
             <label for="requirements">Requirements</label>
-            <input type="text" id="requirements" placeholder="Your requirements">
+            <input type="text" id="requirements" placeholder="Your requirements" required>
 
             <label for="description">Description</label>
-            <textarea id="description" placeholder="Provide additional details"></textarea>
+            <textarea id="description" placeholder="Provide additional details" required></textarea>
 
             <button type="submit">SUBMIT</button>
           </div>
