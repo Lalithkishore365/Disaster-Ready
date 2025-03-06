@@ -1,0 +1,153 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* 🔹 Header Section */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+}
+
+.logo img {
+  width: 150px; /* Adjust size */
+  height: auto;
+  display: block;
+}
+
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.alert-button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 🔹 Main Content Layout */
+.main-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.left-column {
+  width: 60%;
+}
+
+.right-column {
+  width: 40%;
+}
+
+/* 🔹 Section Styles */
+.live-updates,
+.heroes,
+.faq {
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.live-updates h2,
+.heroes h2,
+.faq h2 {
+  color: #ff4500; /* Highlighted section titles */
+}
+
+.cta {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.cta button {
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta button:hover {
+  background-color: #d63c00;
+}
+
+/* 🔹 Map Section */
+.map-section {
+  text-align: center;
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.map img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Map Controls */
+.map-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.map-controls button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.map-controls button:hover {
+  background-color: #0056b3;
+}
+
+/* 🔹 Responsive Design */
+@media screen and (max-width: 900px) {
+  .main-container {
+      flex-direction: column;
+  }
+
+  .left-column,
+  .right-column {
+      width: 100%;
+  }
+}
