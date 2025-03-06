@@ -1,0 +1,135 @@
+/* General Reset */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background-placeholder.jpg'); /* Replace with actual background */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Full-width header */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 5%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 50px;
+    margin-right: 10px;
+  }
+  
+  .logo span {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  /* Navbar */
+  nav {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #f4d03f;
+  }
+  
+  /* Alert Button */
+  .alert-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.2s;
+  }
+  
+  .alert-button:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Main Content */
+/* Remove unnecessary gap between navbar and heading */
+.content {
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding-top: 20px; /* Adjusted padding */
+  }
+  
+  .content h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .content h2 {
+    font-size: 24px;
+    color: #f4d03f;
+    margin-bottom: 20px;
+  }
+  
+  /* Guide Box */
+  .guide-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .guide-box h3 {
+    color: #f4d03f;
+    border-bottom: 2px solid #f4d03f;
+    padding-bottom: 5px;
+    margin-top: 20px;
+  }
+  
+  .guide-box ul {
+    list-style-type: square;
+    padding-left: 20px;
+  }
+  
+  .guide-box ul li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
