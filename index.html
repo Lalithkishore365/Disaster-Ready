@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DisasterReady</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Leaflet.js -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="DISASTERREADY.jpg" alt="DisasterReady Logo">
+      <span>DISASTERREADY</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Info Hub</a></li>
+        <li><a href="supportform.html">Support Form</a></li>
+        <li><a href="#">Volunteer/Donate</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="alert-button">🔔</button>
+  </header>
+
+  <div class="container">
+    <main class="main-container">
+      <div class="left-column">
+        <section class="live-updates">
+          <h2>🔴 Live Emergency Updates</h2>
+          <p id="disaster-alert" class="blinking">Fetching latest alerts...</p>
+        </section>
+
+        <section class="heroes">
+          <h2>🦸‍♂️ Heroes Among Us</h2>
+          <div class="slideshow-container">
+            <div class="slide fade">🌟 Ravi rescued 20 people in Kerala floods!</div>
+            <div class="slide fade">🌟 Maria provided shelter to 50 families in a cyclone!</div>
+            <div class="slide fade">🌟 Arun saved trapped animals during floods!</div>
+          </div>
+        </section>
+
+        <section class="faq">
+          <h2>❓ FAQ Section</h2>
+          <ul class="faq-list">
+            <li>
+              <div class="faq-question">What is DisasterReady?</div>
+              <p class="faq-answer">DisasterReady is a platform that helps in disaster preparedness and relief.</p>
+            </li>
+            <li>
+              <div class="faq-question">How can I get real-time alerts?</div>
+              <p class="faq-answer">We use APIs to provide live disaster alerts based on your location.</p>
+            </li>
+            <li>
+              <div class="faq-question">How can I volunteer?</div>
+              <p class="faq-answer">Visit our Volunteer section to find opportunities near you.</p>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="right-column">
+        <section class="map-section">
+          <div id="map"></div>
+          <div class="map-controls">
+            <button onclick="changeLayer('rain')">Rain</button>
+            <button onclick="changeLayer('temp')">Temperature</button>
+            <button onclick="changeLayer('alerts')">Alerts</button>
+          </div>
+        </section>
+
+        <section class="weather-info">
+          <h2>🌤 Weather Details</h2>
+          <p id="weather">Fetching weather details...</p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
