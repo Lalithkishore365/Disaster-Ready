@@ -7,40 +7,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let weatherLayer = null;
     const apiKey = '149b110a287cdf78183bc648da798918';
-    let activeLayer = ''; // Keeps track of the currently active layer
+    let activeLayer = null;
 
-    function changeLayer(type, button) {
-        if (weatherLayer) {
-            map.removeLayer(weatherLayer);
-            weatherLayer = null;
-        }
-
+    function changeLayer(type) {
+        // If the same layer is active, remove it
         if (activeLayer === type) {
-            // If the same button is clicked again, just disable the layer and reset active state
-            activeLayer = '';
+            if (weatherLayer) {
+                map.removeLayer(weatherLayer);
+                weatherLayer = null;
+            }
+            activeLayer = null;
             resetButtonHighlight();
             return;
         }
-
-        let layerUrl;
+    
+        // Remove previous layer
+        if (weatherLayer) {
+            map.removeLayer(weatherLayer);
+        }
+    
+        let layerUrl = '';
         if (type === 'rain') {
             layerUrl = `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${apiKey}`;
         } else if (type === 'temp') {
-            layerUrl = `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`;
+            layerUrl = `https://tile.openweathermap.org/map/temp/{z}/{x}/{y}.png?appid=${apiKey}`; // Ensure "temp" instead of "temp_new"
         } else if (type === 'alerts') {
             layerUrl = `https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=${apiKey}`;
         }
-
+    
         weatherLayer = L.tileLayer(layerUrl, { attribution: 'Weather data © OpenWeatherMap' });
         weatherLayer.addTo(map);
         activeLayer = type;
-
-        highlightActiveButton(button);
+    
+        highlightActiveButton(type);
     }
+    
 
-    function highlightActiveButton(button) {
+    function highlightActiveButton(type) {
         resetButtonHighlight();
-        button.classList.add("active-button");
+        let button = document.querySelector(`button[data-layer="${type}"]`);
+        if (button) {
+            button.classList.add("active-button");
+        }
     }
 
     function resetButtonHighlight() {
@@ -48,6 +56,13 @@ document.addEventListener("DOMContentLoaded", function () {
             btn.classList.remove("active-button");
         });
     }
+
+    // Attach event listeners to buttons
+    document.querySelectorAll(".map-controls button").forEach(button => {
+        let layerType = button.innerText.toLowerCase();
+        button.setAttribute("data-layer", layerType);
+        button.addEventListener("click", () => changeLayer(layerType));
+    });
 
     // Get user location and fetch weather
     if (navigator.geolocation) {
@@ -57,10 +72,27 @@ document.addEventListener("DOMContentLoaded", function () {
             map.setView([lat, lon], 10);
 
             fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("weather").innerHTML = `🌡 Temp: ${data.main.temp}°C <br> ☔ Rain: ${data.weather[0].description}`;
-                });
+    .then(response => response.json())
+    .then(data => {
+        let temp = data.main.temp;
+        let humidity = data.main.humidity;
+        let windSpeed = data.wind.speed;
+        let pressure = data.main.pressure;
+        let sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+        let sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+
+        document.getElementById("weather").innerHTML = `
+            🌡 Temperature: ${temp}°C <br> 
+            💧 Humidity: ${humidity}% <br> 
+            🌬 Wind Speed: ${windSpeed} m/s <br> 
+            🌡 Pressure: ${pressure} hPa <br> 
+            🌅 Sunrise: ${sunrise} <br> 
+            🌇 Sunset: ${sunset} <br> 
+            ☔ Condition: ${data.weather[0].description}
+        `;
+    })
+    .catch(error => console.error("Weather fetch error:", error));
+
 
             document.getElementById("disaster-alert").innerText = "⚠️ Flood warning in your area!";
         });
