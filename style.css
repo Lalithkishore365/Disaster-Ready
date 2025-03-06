@@ -1,4 +1,4 @@
-/* styles.css */
+/* 🔹 General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -18,12 +18,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 8px 20px; /* Reduced height */
   background-color: #333;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .logo img {
-  width: 150px; /* Adjust size */
+  width: 120px; /* Slightly smaller */
   height: auto;
   display: block;
 }
@@ -31,12 +32,18 @@ header {
 header nav ul {
   list-style-type: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
 header nav ul li a {
   text-decoration: none;
   color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #ff4500; /* Highlight effect */
 }
 
 .alert-button {
@@ -44,6 +51,11 @@ header nav ul li a {
   border: none;
   font-size: 20px;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.alert-button:hover {
+  transform: scale(1.1);
 }
 
 /* 🔹 Main Content Layout */
@@ -55,7 +67,7 @@ header nav ul li a {
 }
 
 .left-column {
-  width: 60%;
+  width: 58%;
 }
 
 .right-column {
@@ -76,9 +88,18 @@ header nav ul li a {
 .live-updates h2,
 .heroes h2,
 .faq h2 {
-  color: #ff4500; /* Highlighted section titles */
+  color: #ff4500;
 }
 
+.faq ul {
+  padding-left: 20px;
+}
+
+.faq ul li {
+  margin-bottom: 5px;
+}
+
+/* 🔹 Call to Action */
 .cta {
   text-align: center;
   margin: 20px 0;
@@ -149,5 +170,18 @@ header nav ul li a {
   .left-column,
   .right-column {
       width: 100%;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  header nav ul {
+    justify-content: center;
   }
 }
